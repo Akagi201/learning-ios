@@ -16,3 +16,22 @@ label1.textColor = UIColor.blueColor()
 
 Mind, Debug, Test, 编码实现我们的一些设计猜想
 **/
+
+var c:Character = "A"
+var s:String = "ABC"
+
+// 字符跟字符串都是值类型, 不是引用类型.
+
+var ss:String = String()
+
+var l:String = "EFG"
+
+var g = s + l
+
+var f = g + String(c)
+
+f = g + "\(c)"
+
+//for chr in g {
+//    print(chr)
+//}
