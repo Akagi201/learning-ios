@@ -234,3 +234,83 @@ func changeName(inout name:String) {
 changeName(&myName)
 
 print(myName)
+
+// Define a function
+func addMoney(a:Int, b:Int) -> Int{
+    return a + b
+}
+
+// 这里是引用类型
+var getMoney:(Int, Int)->Int = addMoney
+
+var num = getMoney(1, 2)
+print(num)
+
+func onMoneyAdded((Int, Int)->Int) {
+    print("event called")
+}
+
+onMoneyAdded(addMoney)
+
+func onMoneyDeleted() ->(Int,Int)->Int{
+    return getMoney
+}
+
+let moneyFunc = onMoneyDeleted()
+moneyFunc(1,2)
+
+func onMoneyDeleted1()->(Int, Int)->Int{
+    func addUser(name:String){
+        print("my name is Akagi201")
+    }
+    return getMoney
+}
+
+func isGood(a:Int, b:Int) -> Bool {
+    return a > b
+}
+
+func addMoney11(c:Int, d:Bool)->String{
+    return "hello"
+}
+
+var result = addMoney11(15, d: isGood(1, b: 2))
+
+print(result)
+
+var myList1 = ["ddf", "ddd", "eee"]
+//sort(&myList1, {(s1:String, s2:String)->Bool in return s1 > s2})
+//sort(&myList1, {$0 < $1})
+
+enum Sex {
+    case Male
+    case Female
+}
+
+var akSex = Sex.Male
+
+akSex = .Female
+
+enum Sex1 {
+    case Male(Int, Int)
+    case Female(String)
+}
+
+var akSex1 = Sex1.Male(1,1)
+
+enum Country:Int {
+    case China = 1
+    case Japan
+}
+
+var myCountry = Country.China
+print(myCountry)
+
+switch myCountry {
+case .China:
+    print("China")
+case .Japan:
+    print("Japan")
+default:
+    print("hello")
+}
